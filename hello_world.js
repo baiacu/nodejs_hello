@@ -2,9 +2,10 @@ var express = require('express');
 
 var app = express();
 
-app.get('/', function(req, res){
-  res.send('Hello World');
+app.set('view engine', 'pug');
+
+app.get('/', function (req, res) {
+  res.render('hello_world', { title: 'Hey', message: 'Hello there!'});
 });
 
 app.listen(process.env.PORT);
-console.log('Express started on port ' + process.env.PORT);
